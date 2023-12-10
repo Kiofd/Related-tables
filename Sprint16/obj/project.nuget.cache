@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GL3ChbsVqU1MC2fsMgGZxacfXE/IcEQMXw/3beyiAO9vGcIyw31d7AqeKwe+vhVtZj8UX9+juwnapT6czGWHwA==",
+  "dgSpecHash": "KiEUHVHBnaMqsg3CG29whQTx+291q2Noma7555MYSzoFR+BfJvmU2EmKq/rn6HfNGwkLMVxSPs7P6Q7p44Ilzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\Sprint16.csproj",
+  "projectFilePath": "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\Sprint16.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\38096\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\38096\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

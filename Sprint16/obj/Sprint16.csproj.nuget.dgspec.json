@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\Sprint16.csproj": {}
+    "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\Sprint16.csproj": {}
   },
   "projects": {
-    "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\Sprint16.csproj": {
+    "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\Sprint16.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\Sprint16.csproj",
+        "projectUniqueName": "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\Sprint16.csproj",
         "projectName": "Sprint16",
-        "projectPath": "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\Sprint16.csproj",
+        "projectPath": "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\Sprint16.csproj",
         "packagesPath": "C:\\Users\\38096\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\38096\\source\\repos\\Sprint16_1\\Sprint16\\obj\\",
+        "outputPath": "C:\\Users\\38096\\source\\repos\\om-0523-sprint-16-team-3-volodya-hlib-maksym\\Sprint16\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
