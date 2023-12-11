@@ -16,8 +16,8 @@ namespace Sprint16.Service
         }
         public async Task AddProduct(Product product) // for example 
         {
-            _dbContext.Products.Add(product);
-            _dbContext.SaveChanges();
+             _dbContext.Products.Add(product);
+             await _dbContext.SaveChangesAsync();             
         }
         public async Task<IEnumerable<Order>> GetOrders()
         {
