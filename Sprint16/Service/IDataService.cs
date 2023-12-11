@@ -4,7 +4,7 @@ namespace Sprint16.Service
 {
     public interface IDataService
     {
-        Task <IEnumerable<Product>> GetProducts();
+        Task<IEnumerable<Product>> GetProducts();
         Task<IEnumerable<Supermarket>> GetSupermarkets();
         Task<IEnumerable<Order>> GetOrders();
         Task<IEnumerable<Customer>> GetCustomers();
