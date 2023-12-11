@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Sprint16.Migrations
 {
     /// <inheritdoc />
-    public partial class MyMigr : Migration
+    public partial class MyMigr1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,24 +61,22 @@ namespace Sprint16.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Customer_Id = table.Column<int>(type: "int", nullable: false),
-                    Supermarket_Id = table.Column<int>(type: "int", nullable: false),
-                    Order_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomersId = table.Column<int>(type: "int", nullable: false),
-                    SupermarketsId = table.Column<int>(type: "int", nullable: false)
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    SupermarketId = table.Column<int>(type: "int", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_Customers_CustomersId",
-                        column: x => x.CustomersId,
+                        name: "FK_Orders_Customers_CustomerId",
+                        column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_Supermarkets_SupermarketsId",
-                        column: x => x.SupermarketsId,
+                        name: "FK_Orders_Supermarkets_SupermarketId",
+                        column: x => x.SupermarketId,
                         principalTable: "Supermarkets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -90,11 +88,9 @@ namespace Sprint16.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Order_Id = table.Column<int>(type: "int", nullable: false),
-                    Product_Id = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<float>(type: "real", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<float>(type: "real", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -124,14 +120,14 @@ namespace Sprint16.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_CustomersId",
+                name: "IX_Orders_CustomerId",
                 table: "Orders",
-                column: "CustomersId");
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_SupermarketsId",
+                name: "IX_Orders_SupermarketId",
                 table: "Orders",
-                column: "SupermarketsId");
+                column: "SupermarketId");
         }
 
         /// <inheritdoc />

@@ -12,8 +12,8 @@ using Sprint16.Data;
 namespace Sprint16.Migrations
 {
     [DbContext(typeof(ShoppingContext))]
-    [Migration("20231210203029_MyMigr")]
-    partial class MyMigr
+    [Migration("20231211125752_MyMigr1")]
+    partial class MyMigr1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,26 +61,20 @@ namespace Sprint16.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Customer_Id")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CustomersId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Order_Date")
+                    b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Supermarket_Id")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SupermarketsId")
+                    b.Property<int>("SupermarketId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CustomersId");
+                    b.HasIndex("CustomerId");
 
-                    b.HasIndex("SupermarketsId");
+                    b.HasIndex("SupermarketId");
 
                     b.ToTable("Orders");
                 });
@@ -96,13 +90,7 @@ namespace Sprint16.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Order_Id")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Product_Id")
                         .HasColumnType("int");
 
                     b.Property<float>("Quantity")
@@ -162,13 +150,13 @@ namespace Sprint16.Migrations
                 {
                     b.HasOne("Sprint16.Models.Customer", "Customers")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomersId")
+                        .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Sprint16.Models.Supermarket", "Supermarkets")
                         .WithMany("Orders")
-                        .HasForeignKey("SupermarketsId")
+                        .HasForeignKey("SupermarketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
