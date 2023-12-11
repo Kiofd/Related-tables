@@ -10,49 +10,42 @@ namespace Sprint16.Service
         {
             _dbContext = dbContext;
         }
-
-     
-        public IEnumerable<Customer> GetCustomers() // for example
+        public async Task <IEnumerable<Customer>> GetCustomers() // for example
         {
             return _dbContext.Customers.ToList(); 
         }
-        public void AddProduct(Product product) // for example 
+        public async Task AddProduct(Product product) // for example 
         {
             _dbContext.Products.Add(product);
             _dbContext.SaveChanges();
         }
-        public IEnumerable<Order> GetOrders()
+        public async Task<IEnumerable<Order>> GetOrders()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<OrderDetails> GetOrdersDetails()
+        public async Task<IEnumerable<OrderDetails>> GetOrdersDetails()
         {
             throw new NotImplementedException();
         }
-        public IEnumerable<Product> GetProducts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Supermarket> GetSupermarkets()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
             throw new NotImplementedException();
         }
 
-        
-        public void GetProduct(Product product)
+        public async Task<IEnumerable<Supermarket>> GetSupermarkets()
         {
             throw new NotImplementedException();
         }
-
-       
-        public void RemoveProduct(Product product)
+        public async Task GetProduct(Product product)
         {
             throw new NotImplementedException();
         }
-
-        public void UpdateProduct(Product product)
+        public async Task RemoveProduct(Product product)
+        {
+            throw new NotImplementedException();
+        }
+        public async Task UpdateProduct(Product product)
         {
             throw new NotImplementedException();
         }
