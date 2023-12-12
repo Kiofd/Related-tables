@@ -1,4 +1,5 @@
-﻿using Sprint16.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Sprint16.Data;
 using Sprint16.Models;
 
 namespace Sprint16.Service
@@ -17,24 +18,32 @@ namespace Sprint16.Service
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task Get(Customer product)
+        public Task<Customer> Get(int customerID)
         {
-            throw new NotImplementedException();
+            return _dbContext.Customers.FirstOrDefaultAsync(c => c.Id == customerID);
         }
 
-        public Task<IEnumerable<Customer>> GetSmth()
+        public async Task<IEnumerable<Customer>> GetSmth()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Customers.ToListAsync();
         }
 
-        public Task Remove(Customer product)
+        public async Task Update(Customer customerUpdate)
         {
-            throw new NotImplementedException();
+            var existingCustomer = await _dbContext.Customers.FindAsync(customerUpdate.Id);
+            try
+            {
+                existingCustomer.Fname = customerUpdate.Fname;
+                existingCustomer.Lname = customerUpdate.Lname;
+                existingCustomer.Address = customerUpdate.Address;
+                existingCustomer.Discount = customerUpdate.Discount;
+            }
+            catch (Exception)
+            {
+                throw new InvalidOperationException("Customer not found", new Exception());
+            }
+            await _dbContext.SaveChangesAsync(); 
         }
 
-        public Task Update(Customer product)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

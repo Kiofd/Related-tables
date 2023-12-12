@@ -13,14 +13,26 @@ namespace Sprint16.Controllers
         {
             _dataService = dataService;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? searchString)
         {
-
-            return View(await );
+            var customer = await _dataService.GetSmth();
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+                customer = customer.Where(c => c.Lname.ToLower().Contains(searchString)|| c.Fname.ToLower().Contains(searchString));
+            }            
+            return View(customer);
         }
         public async Task<IActionResult> Create()
         {
             return View();
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var customer = await _dataService.Get(id);
+            
+            return View(customer);
         }
     }
 }
