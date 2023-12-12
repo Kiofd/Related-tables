@@ -1,4 +1,5 @@
-﻿using Sprint16.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Sprint16.Data;
 using Sprint16.Models;
 
 namespace Sprint16.Service
@@ -12,7 +13,7 @@ namespace Sprint16.Service
         }
         public async Task <IEnumerable<Customer>> GetCustomers() // for example
         {
-            return _dbContext.Customers.ToList(); 
+            return await _dbContext.Customers.ToListAsync(); 
         }
         public async Task AddProduct(Product product) // for example 
         {
