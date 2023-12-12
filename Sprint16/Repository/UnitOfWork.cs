@@ -9,21 +9,20 @@ namespace Sprint16.Repository
         {
             db = shoppingContext;
         }
-		private CustomerRepository customerRepository;
 		private ProductRepository productRepository;
 		private SupermarketRepository supermarketRepository;
 		private OrderRepository orderRepository;
 		private OrderDetailsRepository orderDetailsRepository;
 
-		public CustomerRepository Customers
-		{
-			get
-			{
-				if (customerRepository == null)
-					customerRepository = new CustomerRepository(db);
-				return customerRepository;
-			}
-		}
+		//public CustomerRepository Customers
+		//{
+		//	get
+		//	{
+		//		if (customerRepository == null)
+		//			customerRepository = new CustomerRepository(db);
+		//		return customerRepository;
+		//	}
+		//}
 
 		public ProductRepository Products
 		{

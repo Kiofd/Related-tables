@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Sprint16.Models;
+using Sprint16.Service;
 using System.Diagnostics;
 
 namespace Sprint16.Controllers
@@ -7,7 +8,6 @@ namespace Sprint16.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;

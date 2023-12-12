@@ -13,7 +13,7 @@ namespace Sprint16.Data
 
 			var products = new Product[]
 			{
-				new Product { Name = "Butter", Price = 30.0f },
+				new Product { Name = "Banan", Price = 30.0f },
 				new Product { Name = "Apple", Price = 20.50f },
 				new Product { Name = "Morshinska", Price = 9.30f }
 			};

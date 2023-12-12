@@ -19,6 +19,7 @@ namespace Sprint16.Models
 		public string Address { get; set; }
 		public Discount Discount { get; set; }
 
-		public ICollection<Order> Orders { get; set; }
+		
+		public ICollection<Order>? Orders { get; set; }
 	}
 }
