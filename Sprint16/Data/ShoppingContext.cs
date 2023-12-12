@@ -7,7 +7,8 @@ namespace Sprint16.Data
     {
         public ShoppingContext(DbContextOptions<ShoppingContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 		public DbSet<Customer> Customers { get; set; }
