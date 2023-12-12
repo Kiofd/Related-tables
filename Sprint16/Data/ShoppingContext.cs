@@ -9,12 +9,12 @@ namespace Sprint16.Data
         {
 
             //Database.EnsureDeleted();
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 		public DbSet<Customer> Customers { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Supermarket> Supermarkets { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetails> OrderDetails { get; set; }
-    }
+		public DbSet<Product> Products { get; set; }
+		public DbSet<Supermarket> Supermarkets { get; set; }
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<OrderDetails> OrderDetails { get; set; }
+	}
 }

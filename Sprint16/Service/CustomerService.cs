@@ -28,8 +28,23 @@ namespace Sprint16.Service
             return await _dbContext.Customers.ToListAsync();
         }
 
+        public async Task Remove(int id)
+        {
+            var customer = await _dbContext.Customers.FindAsync(id);
+            try
+            {
+                _dbContext.Remove(customer);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Object is null");
+            }
+            finally { _dbContext.SaveChanges(); }
+        }
+
         public async Task Update(Customer customerUpdate)
         {
+            //public async Task Update(Customer item) => await Task.Factory.StartNew(() => db.Entry(item).State = EntityState.Modified);
             var existingCustomer = await _dbContext.Customers.FindAsync(customerUpdate.Id);
             try
             {

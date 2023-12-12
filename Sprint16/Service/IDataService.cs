@@ -7,7 +7,7 @@ namespace Sprint16.Service
         Task<IEnumerable<T>> GetSmth();
 
         Task Add(T smth);
-        //Task Remove(T product);
+        Task Remove(int smthId);
         Task Update(T smth);
         Task<Customer> Get(int smthId);
     }
