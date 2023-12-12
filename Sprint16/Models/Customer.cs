@@ -10,8 +10,10 @@ namespace Sprint16.Models
 	{
 		public int Id { get; set; }
 		[MaxLength(50)]
+		[Display(Name = "First name")]
 		public string Fname { get; set; }
 		[MaxLength(50)]
+		[Display(Name = "Last name")]
 		public string Lname { get; set; }
 		[MaxLength(50)]
 		public string Address { get; set; }
