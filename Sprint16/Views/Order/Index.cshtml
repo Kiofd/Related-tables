@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Sprint16.Models.Order>
+
+@{
+	ViewData["Title"] = "View";
+}
+
+<h1>Orders</h1>
+
+<p>
+	<a asp-action="Create">Create New</a>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>
+					@* @Html.DisplayNameFor(model => model.Order_Date) *@ @* TODO: later *@
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Customers)
+				</th>
+				<th>
+					@Html.DisplayNameFor(model => model.Supermarkets)
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<th>
+						@* @Html.DisplayNameFor(model => model.Order_Date) *@ @* TODO: later *@
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Customers)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Supermarkets)
+					</th>
+					<td>
+						@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+						@Html.ActionLink("Details", "View", new { id = item.Id }) |
+						@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
