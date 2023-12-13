@@ -1,36 +1,45 @@
-﻿@model Customer
+﻿@model Sprint16.ViewModels.CustomerViewModel
 
-<h2>Edit Customer</h2>
+@{
+    ViewData["Title"] = "Edit";
+}
 
-<form asp-action="Edit" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h1>Edit</h1>
 
-    <input type="hidden" asp-for="Id" />
-
-    <div class="form-group">
-        <label asp-for="Fname"></label>
-        <input asp-for="Fname" class="form-control" />
-        <span asp-validation-for="Fname" class="text-danger"></span>
+<h4>Customer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label"></label>
+                <input asp-for="Lname" class="form-control" />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount" class="control-label"></label>
+                <select asp-for="Discount" asp-items="@ViewBag.DiscountTypes" class="form-control"></select>
+                <span asp-validation-for="Discount" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="Lname"></label>
-        <input asp-for="Lname" class="form-control" />
-        <span asp-validation-for="Lname" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Address"></label>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Discount"></label>
-        <input asp-for="Discount" class="form-control" />
-        <span asp-validation-for="Discount" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
-</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,44 +1,66 @@
-﻿@model IEnumerable<Customer>
+﻿@model IEnumerable<Sprint16.Models.Customer>
 
-<h2>Customer List</h2>
+@{
+	ViewData["Title"] = "Index";
+}
+
+<h1>Customers</h1>
 
 <form asp-action="Index" method="get">
-    <div class="form-group">
-        <input type="text" name="searchString" placeholder="Search by Last Name or First Name" />
-        <input type="submit" value="Search" class="btn btn-primary" />
-    </div>
+	<div class="form-actions no-color">
+		<p>
+			<input type="text" name="SearchString" placeholder="Search by Last Name or First Name" value="@ViewData["CurrentFilter"]" />
+			<input type="submit" value="Search" class="btn btn-default" /> |
+			<a asp-action="Index">Back to Full List of customers</a>
+		</p>
+	</div>
 </form>
 
+<p>
+	<a asp-controller="Customer" asp-action="Create">Create New</a>
+</p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Address</th>
-            <th>Dicount</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var customer in Model)
-        {
-            <tr>
-                <td>@customer.Id</td>
-                <td>@customer.Fname</td>
-                <td>@customer.Lname</td>
-                <td>@customer.Address</td>
-                <td>@customer.Discount</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = customer.Id }) |
-                    @Html.ActionLink("Details", "Get", new { id = customer.Id }) |
-@* 
-                    <form asp-action="Del" asp-controller="Customer" method="post">
-                        @Html.HiddenFor(id => customer.Id)
-                        <input type="submit" value="Delete" class="btn btn-danger" />
-                    </form> *@
-                    @Html.ActionLink("Delete", "Del", new { id = customer.Id })
-                </td>
-            </tr>
-        }
-    </tbody>
+	<thead>
+		<tr>
+
+			<th>
+				<a asp-action="Index" asp-route-sortOrder="@ViewData["LastNameSortParm"]">@Html.DisplayNameFor(model => model.Lname)</a>
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Fname)
+			</th>
+			<th>
+				<a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]">@Html.DisplayNameFor(model => model.Address)</a>
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Discount)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Lname)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Fname)
+				</td>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.Address)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Discount)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+					@Html.ActionLink("Details", "View", new { id = item.Id }) |
+					@Html.ActionLink("Delete", "Delete", new { id = item.Id })
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
