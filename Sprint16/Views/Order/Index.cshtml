@@ -1,47 +1,48 @@
 ﻿@model IEnumerable<Sprint16.Models.Order>
 
 @{
-	ViewData["Title"] = "View";
+    ViewData["Title"] = "Orders";
 }
 
-<h1>Orders</h1>
+<h1>Order</h1>
 
 <p>
-	<a asp-action="Create">Create New</a>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					@* @Html.DisplayNameFor(model => model.Order_Date) *@ @* TODO: later *@
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Customers)
-				</th>
-				<th>
-					@Html.DisplayNameFor(model => model.Supermarkets)
-				</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in Model)
-			{
-				<tr>
-					<th>
-						@* @Html.DisplayNameFor(model => model.Order_Date) *@ @* TODO: later *@
-					</th>
-					<th>
-						@Html.DisplayNameFor(model => model.Customers)
-					</th>
-					<th>
-						@Html.DisplayNameFor(model => model.Supermarkets)
-					</th>
-					<td>
-						@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-						@Html.ActionLink("Details", "View", new { id = item.Id }) |
-						@Html.ActionLink("Delete", "Delete", new { id = item.Id })
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+@* <a asp-action="Create">Create New</a> *@
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supermarkets)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                @Html.DisplayFor(model => item.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Customers.Fname )
+                @Html.DisplayFor(model => item.Customers.Lname)
+            </th>
+            <th>
+                @Html.DisplayFor(model => item.Supermarkets.Name)
+            </th>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

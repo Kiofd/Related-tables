@@ -25,7 +25,9 @@ namespace Sprint16.Controllers
 			ViewData["LastNameSortParm"] = string.IsNullOrEmpty(sortOrder) ? "last_name_desc" : "";
 			ViewData["AddressSortParm"] = sortOrder == "Address" ? "address_desc" : "Address";
 			ViewData["CurrentFilter"] = searchString;
+
 			var customers = await unitOfWork.Customers.GetAll();
+
 			if (!String.IsNullOrEmpty(searchString))
 			{
 				searchString = searchString.ToLower();
@@ -58,6 +60,7 @@ namespace Sprint16.Controllers
 			ViewBag.DiscountTypes = GetDiscountTypes();
 			return View(new CustomerViewModel());
 		}
+
 		[HttpPost]
 		public async Task<IActionResult> Create(CustomerViewModel customer)
 		{
@@ -101,6 +104,7 @@ namespace Sprint16.Controllers
 				Discount = customer.Discount
 			});
 		}
+
 		[HttpPost]
 		public async Task<ActionResult> Edit(int? id, CustomerViewModel customer)
 		{

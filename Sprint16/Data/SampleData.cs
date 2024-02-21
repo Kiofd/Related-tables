@@ -51,7 +51,9 @@ namespace Sprint16.Data
 			{
 				new OrderDetails { OrderId = 1, ProductId = 1, Quantity = 5 },
 				new OrderDetails { OrderId = 2, ProductId = 3, Quantity = 4 },
-				new OrderDetails { OrderId = 3, ProductId = 2, Quantity = 1 }
+				new OrderDetails { OrderId = 3, ProductId = 2, Quantity = 1 },
+				new OrderDetails { OrderId = 3, ProductId = 1, Quantity = 10 },
+				new OrderDetails { OrderId = 3, ProductId = 3, Quantity = 2 }
 			};
 			context.OrderDetails.AddRange(orderDetails);
 			context.SaveChanges();

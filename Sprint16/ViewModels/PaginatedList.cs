@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Sprint16.Models;
 
 namespace Sprint16.ViewModels
 {
@@ -25,5 +26,10 @@ namespace Sprint16.ViewModels
 			var items = await source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync();
 			return new PaginatedList<T>(items, count, pageIndex, pageSize);
 		}
-	}
+
+        internal static Task<string?> CreateAsync(IEnumerable<Order> order, int v, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

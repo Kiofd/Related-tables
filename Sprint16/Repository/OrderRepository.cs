@@ -10,9 +10,17 @@ namespace Sprint16.Repository
 
 		public OrderRepository(ShoppingContext context) => this.db = context;
 
-		public async Task<IEnumerable<Order>> GetAll() => await db.Orders.ToListAsync();
+		public async Task<IEnumerable<Order>> GetAll() => await db.Orders
+			.Include( o => o.Customers)
+			.Include( o => o.Supermarkets)
+			.Include(o => o.OrderDetails)
+			.ToListAsync();
 
-		public async Task<Order> Get(int id) => await db.Orders.FindAsync(id);
+		public async Task<Order> Get(int id) => await db.Orders
+			.Include( o => o.Customers)
+			.Include( o => o.Supermarkets)
+			.Include(o => o.OrderDetails)
+			.FirstOrDefaultAsync(o=> o.Id == id);
 
 		public async Task Create(Order item) => await db.Orders.AddAsync(item);
 
